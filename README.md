@@ -101,6 +101,3 @@ If you want to show your appreciation, you can donate via [Buy Me a Coffee](http
 **Author**: Lalatendu Swain | [GitHub](https://github.com/Lalatenduswain) | [Website](https://blog.lalatendu.info/)
 
 This script is provided as-is and may require modifications or updates based on your specific environment and requirements. Use it at your own risk. The authors of the script are not liable for any damages or issues caused by its usage.
-```
-
-You can copy and paste this content into a README.md file in your GitHub repository, and don't forget to customize the usernames, passwords, and any other details as needed.
