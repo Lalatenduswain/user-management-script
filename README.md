@@ -8,28 +8,10 @@ Create a Bash script to add multiple users and set their passwords. This method 
 
 ### Usage
 
-1. Clone this repository to your Ubuntu system or create a new file called `add_users.sh` with the following content:
+1. Clone this repository to your Ubuntu system or create a new file called `add_users.sh`:
 
     ```bash
-    #!/bin/bash
-
-    # Define an array of usernames
-    usernames=("username1" "username2" "username3")
-
-    # Define an array of passwords
-    passwords=("password1" "password2" "password3")
-
-    # Loop through the arrays and add users
-    for ((i=0; i<${#usernames[@]}; i++)); do
-      username="${usernames[i]}"
-      password="${passwords[i]}"
-      
-      # Add the user
-      sudo useradd "$username" -m
-      
-      # Set the user's password
-      echo "$username:$password" | sudo chpasswd
-    done
+   git clone https://github.com/Lalatenduswain/Adding-Multiple-Users-with-Passwords-in-Ubuntu.git
     ```
 
 2. Make the script executable:
