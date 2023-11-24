@@ -1,81 +1,55 @@
-# Add Multiple Users and Passwords in Ubuntu
+# User Management Script
 
-This repository contains tools and scripts for managing users on a Linux system, specifically Ubuntu. It provides two methods for adding multiple user accounts and setting their passwords. You can either use a Bash script or a text file to automate the process.
+This Bash script is designed for managing user accounts on a Linux system. It allows you to add users from a userlist file, add a single user interactively, remove a user, or remove all users listed in a userlist file.
 
-## Method 1: Using a Script
+## Usage
 
-Create a Bash script to add multiple users and set their passwords. This method is suitable when you have a small number of users to add.
+Before running this script, make sure to:
 
-### Usage
+1. Ensure that you have the necessary permissions to create and manage users on the system.
+2. Set up the required dependencies on your system.
 
-1. Clone this repository to your Ubuntu system or create a new file called `add_users.sh`:
+To use the script, follow these steps:
 
-    ```bash
-   git clone https://github.com/Lalatenduswain/Adding-Multiple-Users-with-Passwords-in-Ubuntu.git
-    ```
+1. Clone this repository to your local machine:
 
-2. Make the script executable:
-    ```bash
-    chmod +x add_users.sh
-    ```
+   ```bash
+   git clone https://github.com/Lalatenduswain/user-management-script.git
+   ```
 
-3. Run the script:
-    ```bash
-    ./add_users.sh
-    ```
+2. Navigate to the script's directory:
 
-This script will create the specified users and set their passwords.
-
-## Method 2: Using a Text File
-
-Add users and passwords by providing the user information in a text file. This method is suitable for adding a larger number of users.
-
-### Usage
-
-1. Create a text file (e.g., `userlist.txt`) and add user information in the following format, one user per line:
-
-    ```
-    username1 password1
-    username2 password2
-    username3 password3
-    ```
-
-2. Create a Bash script to read the file and create users with passwords:
-
-    ```bash
-    #!/bin/bash
-
-    # Specify the path to the user information file
-    userfile="userlist.txt"
-
-    # Read the file line by line and add users
-    while IFS=" " read -r username password; do
-      # Add the user
-      sudo useradd "$username" -m
-      
-      # Set the user's password
-      echo "$username:$password" | sudo chpasswd
-    done < "$userfile"
-    ```
+   ```bash
+   cd user-management-script
+   ```
 
 3. Make the script executable:
-    ```bash
-    chmod +x add_users_from_file.sh
-    ```
 
-4. Run the script:
-    ```bash
-    ./add_users_from_file.sh
-    ```
+   ```bash
+   chmod +x user_management.sh
+   ```
 
-This script will add users and set their passwords based on the information in the `userlist.txt` file.
+4. Run the script as root:
+
+   ```bash
+   sudo ./user_management.sh
+   ```
+
+5. Choose an action from the provided menu:
+   - Add users from a userlist file.
+   - Add a single user interactively.
+   - Remove a user.
+   - Remove all users listed in a userlist file.
 
 ## Donations
 
-If you want to show your appreciation, you can donate via [Buy Me a Coffee](https://www.buymeacoffee.com/lalatendu.swain).
+If you find this script useful and want to show your appreciation, you can donate via [Buy Me a Coffee](https://www.buymeacoffee.com/lalatendu.swain).
 
 ## Disclaimer
 
-**Author**: Lalatendu Swain | [GitHub](https://github.com/Lalatenduswain) | [Website](https://blog.lalatendu.info/)
+**Author:** Lalatendu Swain | [GitHub](https://github.com/Lalatenduswain) | [Website](https://blog.lalatendu.info/)
 
 This script is provided as-is and may require modifications or updates based on your specific environment and requirements. Use it at your own risk. The authors of the script are not liable for any damages or issues caused by its usage.
+```
+
+You can create a `README.md` file in your GitHub repository and paste the above content into it. Make sure to replace the repository URL with the actual URL of your GitHub repository where you have the script. This README provides usage instructions and important information for users of your script.
