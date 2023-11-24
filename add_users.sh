@@ -103,12 +103,33 @@ remove_user() {
     fi
 }
 
+# New function to remove all users listed in userlist.txt
+remove_all_users_from_file() {
+    echo "WARNING: You are about to remove all users listed in $userlist_file."
+    read -p "Are you sure you want to proceed? Type 'yes' to confirm: " confirmation
+    if [ "$confirmation" != "yes" ]; then
+        echo "User removal cancelled."
+        return
+    fi
+    read -p "This is your final warning. Type 'yes' to confirm: " final_confirmation
+    if [ "$final_confirmation" != "yes" ]; then
+        echo "User removal cancelled."
+        return
+    fi
+    while IFS=' ' read -r username password || [[ -n "$username" ]]; do
+        echo "Removing user: $username"
+        userdel -r "$username" 2>/dev/null
+    done < "$userlist_file"
+    echo "All listed users have been removed."
+}
+
 # Main script execution
 echo "Choose an action:"
 echo "1) Add users from file"
 echo "2) Add a single user interactively"
 echo "3) Remove a user"
-read -p "Enter your choice (1/2/3): " action
+echo "4) Remove all users from file"
+read -p "Enter your choice (1/2/3/4): " action
 
 case $action in
     1)
@@ -120,7 +141,10 @@ case $action in
     3)
         remove_user
         ;;
+    4)
+        remove_all_users_from_file
+        ;;
     *)
-        echo "Invalid choice. Please enter 1, 2, or 3."
+        echo "Invalid choice. Please enter 1, 2, 3, or 4."
         ;;
 esac
