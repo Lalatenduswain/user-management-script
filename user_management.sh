@@ -58,11 +58,12 @@ add_users_from_file() {
             continue
         fi
 
-        # Set permissions for SSH files
-        chmod 600 "$user_ssh_dir/authorized_keys" "$user_ssh_dir/$key_name"
-        chmod 644 "$user_ssh_dir/${key_name}.pub"
+        # Create SSH-related files and set permissions
+        touch "$user_ssh_dir/authorized_keys" "$user_ssh_dir/known_hosts" "$user_ssh_dir/config"
+        chmod 600 "$user_ssh_dir/authorized_keys" "$user_ssh_dir/config"
         chmod 644 "$user_ssh_dir/known_hosts"
-        chmod 600 "$user_ssh_dir/config"
+        chmod 600 "$user_ssh_dir/$key_name"
+        chmod 644 "$user_ssh_dir/${key_name}.pub"
 
         # Change ownership of the SSH directory and files
         chown -R "$username:$username" "$user_ssh_dir"
@@ -116,11 +117,12 @@ add_single_user() {
         return
     fi
 
-    # Set permissions for SSH files
-    chmod 600 "$user_ssh_dir/authorized_keys" "$user_ssh_dir/$key_name"
-    chmod 644 "$user_ssh_dir/${key_name}.pub"
+    # Create SSH-related files and set permissions
+    touch "$user_ssh_dir/authorized_keys" "$user_ssh_dir/known_hosts" "$user_ssh_dir/config"
+    chmod 600 "$user_ssh_dir/authorized_keys" "$user_ssh_dir/config"
     chmod 644 "$user_ssh_dir/known_hosts"
-    chmod 600 "$user_ssh_dir/config"
+    chmod 600 "$user_ssh_dir/$key_name"
+    chmod 644 "$user_ssh_dir/${key_name}.pub"
 
     # Change ownership of the SSH directory and files
     chown -R "$username:$username" "$user_ssh_dir"
