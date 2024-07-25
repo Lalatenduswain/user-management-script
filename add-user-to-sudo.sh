@@ -7,7 +7,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Define the file containing the list of usernames and passwords
-USERLIST_FILE="userlist.txt"
+USERLIST_FILE="userlist"
 
 # Check if the userlist file exists
 if [ ! -f "$USERLIST_FILE" ]; then
