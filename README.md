@@ -2,6 +2,8 @@
 
 This Bash script is designed for managing user accounts on a Linux system. It allows you to add users from a userlist file, add a single user interactively, remove a user, or remove all users listed in a userlist file.
 
+![User Management App Screenshot](https://raw.githubusercontent.com/Lalatenduswain/user-management-script/master/image/Linux%20User2.png "User Management")
+
 ## Usage
 
 Before running this script, make sure to:
